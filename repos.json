@@ -1,23 +1,8 @@
 {
     "dam-a": [
-        {
-            "name": "Juan Pérez",
-            "url": "https://github.com/juanperez/mi-repo",
-            "date": "17/09/2024"
-        }
     ],
     "dam-b": [
-        {
-            "name": "Carlos García",
-            "url": "https://github.com/carlosgarcia/proyecto-b",
-            "date": "18/09/2024"
-        }
     ],
     "dam-c": [
-        {
-            "name": "María González",
-            "url": "https://github.com/mariagonzalez/repo-c",
-            "date": "17/09/2024"
-        }
     ]
 }
