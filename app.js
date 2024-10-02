@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         repoCard.className = 'bg-white p-6 rounded-lg shadow-lg';
         repoCard.innerHTML = `
             <h3 class="text-xl font-bold text-gray-800">${repo.name}</h3>
-            <a href="${repo.url}" target="_blank" class="text-indigo-500 hover:text-indigo-600">${repo.url}</a>
+            <a href="${repo.url}" target="_blank" class="text-indigo-500 hover:text-indigo-600 text-ellipsis">${repo.url}</a>
             <p class="text-gray-500 text-sm">Añadido el: ${repo.date}</p>
         `;
         repoList.appendChild(repoCard);
