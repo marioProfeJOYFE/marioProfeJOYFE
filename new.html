@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Publicación - Liquid Glass</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content-wrapper">
+    <h1 class="main-title">Agregar nueva publicación</h1>
+
+    <div class="new-page">
+      <div class="form-row">
+        <label for="owner">Owner (usuario o organización)</label>
+        <input id="owner" placeholder="tu-usuario" />
+      </div>
+      <div class="form-row">
+        <label for="repo">Repositorio</label>
+        <input id="repo" placeholder="tu-repo" />
+      </div>
+      <div class="form-row">
+        <label for="title">Título</label>
+        <input id="title" placeholder="Título de la publicación" />
+      </div>
+      <div class="form-row">
+        <label for="body">Contenido</label>
+        <textarea id="body" rows="6" placeholder="Texto de la publicación. Puedes usar Markdown."></textarea>
+      </div>
+      <div class="form-row">
+        <label for="label">Etiqueta (opcional)</label>
+        <input id="label" placeholder="Ej: CSharp, Unity, Anuncio" />
+      </div>
+
+      <p>Al enviar, abriremos la página de creación de Issues en GitHub con los campos prellenados. Deberás confirmar y crear el Issue con tu cuenta.</p>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <a id="open-issue" class="btn-primary" href="#">Abrir en GitHub</a>
+        <a href="index.html" class="btn-primary" style="background:#00c2a8">Volver al inicio</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Preparamos la URL para crear un Issue con título, body y etiquetas prellenadas.
+    function encodeParam(v){ return encodeURIComponent(v||''); }
+
+    document.getElementById('open-issue').addEventListener('click', (e) => {
+      e.preventDefault();
+      const owner = document.getElementById('owner').value.trim() || 'tu-usuario';
+      const repo = document.getElementById('repo').value.trim() || 'tu-repo';
+      const title = document.getElementById('title').value.trim() || 'Nueva publicación';
+      const body = document.getElementById('body').value.trim() || '';
+      const label = document.getElementById('label').value.trim();
+
+      // GitHub supports prefilled issue via '/issues/new?title=...&body=...&labels=...'
+      let url = `https://github.com/${owner}/${repo}/issues/new?title=${encodeParam(title)}&body=${encodeParam(body)}`;
+      if(label) url += `&labels=${encodeParam(label)}`;
+
+      // Abrir en nueva pestaña
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>

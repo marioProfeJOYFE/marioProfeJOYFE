@@ -3,27 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositorios de Clases Android</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Proyectos Liquid Glass</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
-    <div class="container mx-auto p-8">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Repositorios de Clases Android</h1>
-        
-        <!-- Pestañas para cada clase -->
-        <div class="flex justify-center mb-8">
-            <button class="tab-link px-4 py-2 bg-gray-300 text-gray-800 rounded-lg mr-2" data-class="dam-a">2ºDAM A</button>
-            <button class="tab-link px-4 py-2 bg-gray-300 text-gray-800 rounded-lg mr-2" data-class="dam-b">2ºDAM B</button>
-            <button class="tab-link px-4 py-2 bg-gray-300 text-gray-800 rounded-lg" data-class="dam-c">2ºDAM C</button>
-        </div>
-
-        <!-- Sección para listar los repositorios -->
-        <div id="repo-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Los repositorios se insertarán aquí según la clase seleccionada -->
-        </div>
+<body>
+    <div class="background-container">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
     </div>
 
-    <script src="app.js"></script>
+    <div class="content-wrapper">
+        <h1 class="main-title">Repositorios Clases</h1>
+
+        <div class="top-actions">
+            <div class="filter-chips">
+            <button class="chip active" data-filter="all">Todos</button>
+            <button class="chip" data-filter="csharp">C# WPF</button>
+            <button class="chip" data-filter="unity">Unity</button>
+            </div>
+
+            <!-- Botón para agregar una nueva publicación (abre new.html) -->
+            <div class="actions-right">
+                <a class="add-post" href="new.html">➕ Agregar publicación</a>
+            </div>
+        </div>
+
+        <!-- Configuración del repositorio de GitHub desde el que se cargan las publicaciones -->
+        <!-- Edita los atributos data-owner y data-repo con tu usuario y repositorio antes de publicar en GH Pages -->
+        <div id="repo-config" data-owner="tu-usuario" data-repo="tu-repo" style="display:none"></div>
+
+        <main class="grid-container" id="posts-container">
+            <!-- Las tarjetas se renderizan dinámicamente desde los Issues del repositorio configurado. -->
+            <!-- Puedes dejar tarjetas estáticas aquí como fallback si lo deseas. -->
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
